@@ -131,7 +131,7 @@ article p:first-of-type::first-letter {
   line-height: 0.8;
   margin-right: 0.08em;
   margin-top: 0.06em;
-  font-style: italic;
+  font-style: normal;
 }
 
 /* ── Footnotes ────────────────────────────────────────────── */
