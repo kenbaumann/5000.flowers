@@ -9,7 +9,7 @@
   --rule:    #c8c3b5;
   --link:    #1a1810;
 
-  --font-body: Georgia, 'Times New Roman', serif;
+  --font-body: Garamond, 'Times New Roman', serif;
   --measure: 65ch;
   --space: clamp(1.5rem, 5vw, 3rem);
 }
@@ -115,7 +115,7 @@ h1.piece-title {
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   line-height: 1.2;
   font-weight: normal;
-  font-style: italic;
+  font-style: normal;
 }
 
 article p {
