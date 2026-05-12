@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Publication — About</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="site-title" href="index.html">The Publication</a>
+    <nav>
+      <a href="index.html">Essay</a>
+      <a href="about.html" aria-current="page">About</a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <line x1="12" y1="2"  x2="12" y2="5"/>
+          <line x1="12" y1="19" x2="12" y2="22"/>
+          <line x1="4.22" y1="4.22"   x2="6.34" y2="6.34"/>
+          <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+          <line x1="2"  y1="12" x2="5"  y2="12"/>
+          <line x1="19" y1="12" x2="22" y2="12"/>
+          <line x1="4.22" y1="19.78"  x2="6.34" y2="17.66"/>
+          <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <hr class="rule">
+
+    <p class="about-intro">
+      This is a small, independent publishing project. One essay appears at a time,
+      on no fixed schedule, on whatever subject seems most worth attending to.
+      Each piece is written to be read in a single sitting. The archive below
+      collects everything published so far in a single document.
+    </p>
+
+    <section class="archive-section" aria-labelledby="archive-heading">
+      <h2 id="archive-heading">Archive</h2>
+
+      <!-- 
+        Add a new <a class="archive-item"> for each past piece.
+        Update archive.pdf whenever a new piece is added.
+      -->
+      <a class="archive-item" href="archive.pdf" target="_blank" rel="noopener">
+        <span class="archive-item__title">On the Pleasure of Finishing Things</span>
+        <span class="archive-item__date">May 2026</span>
+      </a>
+
+      <!-- Example of a second entry (remove if not yet needed):
+      <a class="archive-item" href="archive.pdf" target="_blank" rel="noopener">
+        <span class="archive-item__title">Against Productivity</span>
+        <span class="archive-item__date">Apr 2026</span>
+      </a>
+      -->
+
+      <p style="margin-top:1.5rem; font-size:0.82rem; color:var(--muted);">
+        All pieces are also available as a single
+        <a href="archive.pdf" style="color:var(--muted);">PDF&nbsp;download</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <hr class="rule">
+    The Publication
+  </footer>
+
+  <script>
+    const root   = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    const sun    = document.getElementById('icon-sun');
+    const moon   = document.getElementById('icon-moon');
+
+    function applyTheme(dark) {
+      root.setAttribute('data-theme', dark ? 'dark' : 'light');
+      sun.style.display  = dark ? 'block' : 'none';
+      moon.style.display = dark ? 'none'  : 'block';
+      toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(stored ? stored === 'dark' : prefersDark);
+
+    toggle.addEventListener('click', () => {
+      const isDark = root.getAttribute('data-theme') === 'dark';
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      applyTheme(!isDark);
+    });
+  </script>
+
+</body>
+</html>
